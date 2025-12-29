@@ -23,16 +23,26 @@ p {
   font-size: 16px;
   margin-bottom: 20px;
 }
+.cover {
+  margin: -48px;      /* cancels body padding */
+}
+
+.cover img {
+  width: 100vw;       /* full viewport width */
+  height: auto;
+  display: block;
+}
 
   </style>
 </head>
 
 <body>
   <div class="page">
-<img src="image1.jpg" style="width:100%; margin:15px 0;">
+<div class="cover">
+  <img src="image1.jpg">
+</div>
 
-    <h1>Between Mountains and Sea</h1>
-
+    
     <p>
       This is the opening page of the book.  
       Replace this text later with your actual content.
