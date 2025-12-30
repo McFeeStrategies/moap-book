@@ -13,11 +13,13 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: #000;
+      background: #000; /* letterbox */
       font-family: Arial, Helvetica, sans-serif;
       color: #111;
       line-height: 1.8;
       font-weight: 600;
+
+      /* Global smoothing is fine for cover; we'll override on buttons */
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -34,7 +36,7 @@
     .cover img {
       width: 100%;
       height: 100%;
-      object-fit: contain;   /* no cropping */
+      object-fit: contain; /* no cropping */
       object-position: center;
       display: block;
     }
@@ -59,28 +61,42 @@
       box-sizing: border-box;
     }
 
+    /* ---------- BUTTONS: MOAP CRISP TEXT TUNING ---------- */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
 
       min-width: 150px;
-      height: 58px;                /* taller buttons */
-
+      height: 60px;               /* slightly taller for 34px text */
       padding: 0 26px;
 
       border-radius: 16px;
       border: 2px solid rgba(255,255,255,0.35);
       background: rgba(255,255,255,0.95);
 
-      color: #111;
-      text-decoration: none;
+      /* Use a heavier face that survives MOAP downsampling better */
+      font-family: "Arial Black", Arial, Helvetica, sans-serif;
       font-weight: 900;
-      font-size: 32px;             /* 🔥 DOUBLED text size */
-      letter-spacing: 0.4px;
 
+      /* Even pixel size, slightly larger for sharper stroke definition */
+      font-size: 34px;
+      letter-spacing: 0.3px;
+      color: #111111;
+
+      text-decoration: none;
       user-select: none;
       box-shadow: 0 3px 14px rgba(0,0,0,0.45);
+
+      /* These overrides often improve perceived sharpness in SL MOAP */
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: auto;
+      text-rendering: geometricPrecision;
+
+      /* Micro-outline reinforcement (kept subtle to avoid fuzz) */
+      text-shadow:
+        0 0 0.8px rgba(0,0,0,0.35),
+        0 1px 0 rgba(255,255,255,0.4);
     }
 
     .btn:active {
@@ -100,7 +116,12 @@
 
 <body>
   <div class="cover">
-    <img src="image1.jpg" alt="Between Mountains and Sea book cover" decoding="sync" loading="eager" />
+    <img
+      src="image1.jpg"
+      alt="Between Mountains and Sea book cover"
+      decoding="sync"
+      loading="eager"
+    />
 
     <div class="menu">
       <a class="btn"
