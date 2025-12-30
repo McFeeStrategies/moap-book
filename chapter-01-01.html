@@ -6,21 +6,21 @@
   <title>Between Mountains and Sea — Chapter 1</title>
 
   <style>
-    /* ---------- GLOBAL: MOAP-friendly ---------- */
+    /* ---------- GLOBAL: MOAP-friendly (no page scrollbars) ---------- */
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      overflow: hidden;              /* keep outer scrollbars OFF */
       background: #ffffff;
 
       font-family: Arial, Helvetica, sans-serif;
       color: #111111;
-      line-height: 1.8;
+      line-height: 1.55;
 
-      /* Bigger base text for your prim size */
-      font-size: 30px;
+      /* MUCH larger reading size */
+      font-size: 48px;
       font-weight: 600;
 
       -webkit-font-smoothing: antialiased;
@@ -28,14 +28,14 @@
       text-rendering: optimizeLegibility;
     }
 
-    /* ---------- PAGE LAYOUT ---------- */
+    /* ---------- LAYOUT ---------- */
     .frame {
       width: 100vw;
       height: 100vh;
       box-sizing: border-box;
 
-      /* Reduce padding so the readable area is larger */
-      padding: 28px 26px 110px;
+      /* tighter margins so more text fits */
+      padding: 22px 22px 110px;
 
       display: flex;
       justify-content: center;
@@ -43,26 +43,33 @@
       background: #ffffff;
     }
 
-    .page {
+    /* Reading panel: THIS scrolls */
+    .reader {
       width: 100%;
-      max-width: 900px; /* wider = larger usable line length on small prim */
+      max-width: 980px;
+      height: 100%;
       box-sizing: border-box;
+
+      overflow-y: auto;              /* ✅ internal scrolling */
+      overflow-x: hidden;
+
+      padding: 10px 12px 24px;
     }
 
     h2 {
       margin: 0 0 18px 0;
-      font-size: 34px;
+      font-size: 56px;
       font-weight: 900;
-      text-shadow: 0 0 0.7px rgba(0,0,0,0.35);
+      text-shadow: 0 0 0.9px rgba(0,0,0,0.35);
     }
 
     p {
-      margin: 0 0 26px 0;
-      font-size: 30px;
-      text-shadow: 0 0 0.7px rgba(0,0,0,0.35);
+      margin: 0 0 34px 0;
+      font-size: 48px;
+      text-shadow: 0 0 0.9px rgba(0,0,0,0.35);
     }
 
-    /* ---------- NAV BAR ---------- */
+    /* ---------- NAV BAR (unchanged crisp buttons) ---------- */
     .navBar {
       position: absolute;
       left: 0;
@@ -81,7 +88,6 @@
       box-sizing: border-box;
     }
 
-    /* ---------- BUTTONS: match Index (big + crisp) ---------- */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -116,14 +122,8 @@
 
     .btn:active { transform: translateY(1px); }
 
-    .btn.secondary {
-      background: rgba(255,255,255,0.85);
-    }
-
-    .btn.danger {
-      background: rgba(255,255,255,0.70);
-      border-color: rgba(255,255,255,0.25);
-    }
+    .btn.secondary { background: rgba(255,255,255,0.85); }
+    .btn.danger    { background: rgba(255,255,255,0.70); border-color: rgba(255,255,255,0.25); }
 
     .spacer {
       min-width: 180px;
@@ -136,28 +136,32 @@
 
       color: rgba(255,255,255,0.92);
 
-      /* crispness help */
       -webkit-font-smoothing: none;
       -moz-osx-font-smoothing: auto;
       text-rendering: geometricPrecision;
 
-      text-shadow:
-        0 0 0.8px rgba(0,0,0,0.35);
+      text-shadow: 0 0 0.8px rgba(0,0,0,0.35);
     }
   </style>
 </head>
 
 <body>
   <div class="frame">
-    <div class="page">
+    <div class="reader">
       <h2>Chapter 1</h2>
 
       <p>
-        Paste your Chapter 1 text here (Page 1). Keep it to roughly one screen for maximum MOAP clarity.
+        Paste your Chapter 1 text here (Page 1). With scrolling enabled, you can keep big, comfortable
+        text and still include more content.
       </p>
 
       <p>
-        You can split the chapter into multiple pages like chapter-01-02.html, chapter-01-03.html, etc.
+        Add as many paragraphs as you want. The scrollbar will appear on the right side of the reading area.
+      </p>
+
+      <p>
+        If you prefer paging instead of scrolling later, we can split the chapter across multiple chapter-01-XX.html files
+        and keep this same large font.
       </p>
     </div>
   </div>
