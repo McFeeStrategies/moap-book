@@ -5,46 +5,69 @@
   <title>Between Mountains and Sea</title>
 
   <style>
+    /* ---------- GLOBAL RESET ---------- */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* prevents horizontal scrollbars */
+    }
+
     body {
-  margin: 0;
-  padding: 48px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-  color: #111111;
-  line-height: 1.75;
-}
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.75;
+    }
 
-.page {
-  max-width: 720px;
-  margin: 0 auto;
-}
+    /* ---------- COVER PAGE ---------- */
+    .cover {
+      width: 100vw;
+      height: 100vh;
+    }
 
-p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-.cover {
-  margin: -48px;      /* cancels body padding */
-}
+    .cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* change to "cover" if you want edge-to-edge crop */
+      display: block;
+    }
 
-.cover img {
-  width: 95vw;       /* full viewport width */
-  height: auto;
-  display: block;
-}
+    /* ---------- BOOK CONTENT ---------- */
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px;
+    }
 
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .nav {
+      margin-top: 48px;
+      text-align: right;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333333;
+    }
   </style>
 </head>
 
 <body>
-  <div class="page">
-<div class="cover">
-  <img src="image1.jpg">
-</div>
 
-    
+  <!-- COVER PAGE -->
+  <div class="cover">
+    <img src="image1.jpg" alt="Between Mountains and Sea book cover">
+  </div>
+
+  <!-- BOOK CONTENT -->
+  <div class="page">
     <p>
-      This is the opening page of the book.  
+      This is the opening page of the book.
       Replace this text later with your actual content.
     </p>
 
@@ -55,7 +78,7 @@ p {
     <div class="nav">
       <a href="#">Next Page →</a>
     </div>
-
   </div>
+
 </body>
 </html>
