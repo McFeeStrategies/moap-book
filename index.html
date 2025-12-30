@@ -6,74 +6,54 @@
   <title>Between Mountains and Sea</title>
 
   <style>
-    /* ---------- GLOBAL: MOAP-friendly, no scrollbars ---------- */
+    /* ---------- GLOBAL: MOAP-friendly ---------- */
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: #000; /* important for clean letterbox bars */
+      background: #000;
       font-family: Arial, Helvetica, sans-serif;
       color: #111;
       line-height: 1.8;
-      font-size: 22px;
       font-weight: 600;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
 
-    /* ---------- COVER WRAP ---------- */
+    /* ---------- COVER ---------- */
     .cover {
       width: 100vw;
       height: 100vh;
       position: relative;
-      background: #000; /* letterbox */
+      background: #000;
     }
 
-    /* SHOW THE ENTIRE COVER (no cropping) */
     .cover img {
       width: 100%;
       height: 100%;
-      object-fit: contain;          /* <-- key change: no top/bottom cut off */
-      object-position: center center;
+      object-fit: contain;   /* no cropping */
+      object-position: center;
       display: block;
     }
 
-    /* ---------- TOP SAFE AREA (viewer UI can overlap; keep small) ---------- */
-    .hint {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      top: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.90);
-      border: 1px solid rgba(0,0,0,0.12);
-      font-size: 16px;
-      font-weight: 800;
-      text-shadow: 0 0 0.7px rgba(0,0,0,0.25);
-      box-sizing: border-box;
-      pointer-events: none;
-    }
-
-    /* ---------- BOTTOM NAV BAR (bigger, higher contrast) ---------- */
+    /* ---------- BOTTOM NAV BAR ---------- */
     .menu {
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
 
-      /* Give a little extra height so it's not riding the very bottom edge */
-      padding: 16px 14px 22px;
+      padding: 18px 16px 26px;
 
       display: flex;
-      gap: 14px;
+      gap: 18px;
       justify-content: center;
       align-items: center;
 
-      background: rgba(0,0,0,0.70);     /* dark bar = readable on any cover */
+      background: rgba(0,0,0,0.72);
       border-top: 1px solid rgba(255,255,255,0.18);
       backdrop-filter: blur(6px);
       box-sizing: border-box;
@@ -84,32 +64,35 @@
       align-items: center;
       justify-content: center;
 
-      min-width: 120px;     /* makes them easy to click in-world */
-      height: 46px;         /* bigger = readable */
-      padding: 0 18px;
+      min-width: 150px;
+      height: 58px;                /* taller buttons */
 
-      border-radius: 14px;
+      padding: 0 26px;
+
+      border-radius: 16px;
       border: 2px solid rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.95);
 
       color: #111;
       text-decoration: none;
       font-weight: 900;
-      font-size: 18px;      /* bigger text */
-      letter-spacing: 0.2px;
+      font-size: 32px;             /* 🔥 DOUBLED text size */
+      letter-spacing: 0.4px;
 
       user-select: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      box-shadow: 0 3px 14px rgba(0,0,0,0.45);
     }
 
-    .btn:active { transform: translateY(1px); }
+    .btn:active {
+      transform: translateY(1px);
+    }
 
     .btn.secondary {
-      background: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.85);
     }
 
     .btn.danger {
-      background: rgba(255,255,255,0.60);
+      background: rgba(255,255,255,0.70);
       border-color: rgba(255,255,255,0.25);
     }
   </style>
@@ -119,17 +102,20 @@
   <div class="cover">
     <img src="image1.jpg" alt="Between Mountains and Sea book cover" decoding="sync" loading="eager" />
 
-    <div class="hint">
-      Tap Start to begin • Resume continues where you left off
-    </div>
-
     <div class="menu">
-      <a class="btn" href="chapter-01-01.html"
-         onclick="localStorage.setItem('bmns_last','chapter-01-01.html')">Start</a>
+      <a class="btn"
+         href="chapter-01-01.html"
+         onclick="localStorage.setItem('bmns_last','chapter-01-01.html')">
+        Start
+      </a>
 
-      <a class="btn secondary" href="#" id="resumeBtn">Resume</a>
+      <a class="btn secondary" href="#" id="resumeBtn">
+        Resume
+      </a>
 
-      <a class="btn danger" href="closed.html">Close ✕</a>
+      <a class="btn danger" href="closed.html">
+        Close ✕
+      </a>
     </div>
   </div>
 
@@ -142,7 +128,7 @@
       resumeBtn.style.opacity = "1";
     } else {
       resumeBtn.href = "chapter-01-01.html";
-      resumeBtn.style.opacity = "0.85";
+      resumeBtn.style.opacity = "0.9";
     }
   </script>
 </body>
