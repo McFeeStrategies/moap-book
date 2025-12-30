@@ -6,11 +6,14 @@
   <title>Between Mountains and Sea</title>
 
   <style>
+    /* ---------- GLOBAL: MOAP-friendly, no scrollbars ---------- */
     html, body {
-      margin: 0; padding: 0;
-      width: 100%; height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
-      background: #fff;
+      background: #000; /* important for clean letterbox bars */
       font-family: Arial, Helvetica, sans-serif;
       color: #111;
       line-height: 1.8;
@@ -21,63 +24,93 @@
       text-rendering: optimizeLegibility;
     }
 
+    /* ---------- COVER WRAP ---------- */
     .cover {
-      width: 100vw; height: 100vh;
+      width: 100vw;
+      height: 100vh;
       position: relative;
+      background: #000; /* letterbox */
     }
 
+    /* SHOW THE ENTIRE COVER (no cropping) */
     .cover img {
-      width: 100%; height: 100%;
-      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;          /* <-- key change: no top/bottom cut off */
+      object-position: center center;
       display: block;
     }
 
+    /* ---------- TOP SAFE AREA (viewer UI can overlap; keep small) ---------- */
+    .hint {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.90);
+      border: 1px solid rgba(0,0,0,0.12);
+      font-size: 16px;
+      font-weight: 800;
+      text-shadow: 0 0 0.7px rgba(0,0,0,0.25);
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+
+    /* ---------- BOTTOM NAV BAR (bigger, higher contrast) ---------- */
     .menu {
       position: absolute;
-      left: 0; right: 0; bottom: 0;
-      padding: 18px 18px 22px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      /* Give a little extra height so it's not riding the very bottom edge */
+      padding: 16px 14px 22px;
+
       display: flex;
-      gap: 12px;
+      gap: 14px;
       justify-content: center;
-      background: rgba(255,255,255,0.92);
-      border-top: 1px solid rgba(0,0,0,0.10);
+      align-items: center;
+
+      background: rgba(0,0,0,0.70);     /* dark bar = readable on any cover */
+      border-top: 1px solid rgba(255,255,255,0.18);
       backdrop-filter: blur(6px);
+      box-sizing: border-box;
     }
 
     .btn {
-      display: inline-block;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.18);
-      background: #fff;
-      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 120px;     /* makes them easy to click in-world */
+      height: 46px;         /* bigger = readable */
+      padding: 0 18px;
+
+      border-radius: 14px;
+      border: 2px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.92);
+
       color: #111;
-      font-weight: 800;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 18px;      /* bigger text */
+      letter-spacing: 0.2px;
+
       user-select: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
     }
 
     .btn:active { transform: translateY(1px); }
 
     .btn.secondary {
-      font-weight: 800;
-      opacity: 0.85;
+      background: rgba(255,255,255,0.78);
     }
 
     .btn.danger {
-      border-color: rgba(0,0,0,0.18);
-      opacity: 0.75;
-    }
-
-    .hint {
-      position: absolute;
-      top: 14px; left: 14px; right: 14px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.85);
-      border: 1px solid rgba(0,0,0,0.10);
-      font-size: 16px;
-      font-weight: 700;
-      text-shadow: 0 0 0.7px rgba(0,0,0,0.25);
+      background: rgba(255,255,255,0.60);
+      border-color: rgba(255,255,255,0.25);
     }
   </style>
 </head>
@@ -87,18 +120,20 @@
     <img src="image1.jpg" alt="Between Mountains and Sea book cover" decoding="sync" loading="eager" />
 
     <div class="hint">
-      Tap the cover buttons to read. (MOAP-optimized, no scrolling.)
+      Tap Start to begin • Resume continues where you left off
     </div>
 
     <div class="menu">
-      <a class="btn" href="chapter-01-01.html" onclick="localStorage.setItem('bmns_last','chapter-01-01.html')">Start</a>
+      <a class="btn" href="chapter-01-01.html"
+         onclick="localStorage.setItem('bmns_last','chapter-01-01.html')">Start</a>
+
       <a class="btn secondary" href="#" id="resumeBtn">Resume</a>
+
       <a class="btn danger" href="closed.html">Close ✕</a>
     </div>
   </div>
 
   <script>
-    // Resume last-read page (per viewer/session)
     const resumeBtn = document.getElementById('resumeBtn');
     const last = localStorage.getItem('bmns_last');
 
@@ -106,9 +141,8 @@
       resumeBtn.href = last;
       resumeBtn.style.opacity = "1";
     } else {
-      // If nothing saved yet, resume goes to start
       resumeBtn.href = "chapter-01-01.html";
-      resumeBtn.style.opacity = "0.65";
+      resumeBtn.style.opacity = "0.85";
     }
   </script>
 </body>
