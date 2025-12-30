@@ -6,26 +6,14 @@
   <title>Between Mountains and Sea — Chapter 1</title>
 
   <style>
-    /* ---------- GLOBAL: MOAP-friendly (no page scrollbars) ---------- */
+    /* ---------- GLOBAL (no outer scrollbars) ---------- */
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;              /* keep outer scrollbars OFF */
+      overflow: hidden;
       background: #ffffff;
-
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111111;
-      line-height: 1.55;
-
-      /* MUCH larger reading size */
-      font-size: 48px;
-      font-weight: 600;
-
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
     }
 
     /* ---------- LAYOUT ---------- */
@@ -34,8 +22,8 @@
       height: 100vh;
       box-sizing: border-box;
 
-      /* tighter margins so more text fits */
-      padding: 22px 22px 110px;
+      /* less white space */
+      padding: 10px 10px 96px;
 
       display: flex;
       justify-content: center;
@@ -43,44 +31,71 @@
       background: #ffffff;
     }
 
-    /* Reading panel: THIS scrolls */
+    /* Reader is the only scroller */
     .reader {
       width: 100%;
-      max-width: 980px;
+      max-width: 1060px;  /* wider = less wasted space */
       height: 100%;
       box-sizing: border-box;
 
-      overflow-y: auto;              /* ✅ internal scrolling */
+      overflow-y: auto;
       overflow-x: hidden;
 
+      /* much less padding so content fills the page */
       padding: 10px 12px 24px;
+
+      /* Text tuning for MOAP */
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 48px;      /* keep your chosen size */
+      font-weight: 700;     /* heavier strokes = less fuzz */
+      line-height: 1.42;    /* tighter = less white space */
+      color: #111111;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+
+      /* subtle edge reinforcement */
+      text-shadow: 0 0 0.85px rgba(0,0,0,0.35);
     }
 
     h2 {
-      margin: 0 0 18px 0;
-      font-size: 56px;
+      margin: 0 0 14px 0;
+      font-size: 54px;
       font-weight: 900;
-      text-shadow: 0 0 0.9px rgba(0,0,0,0.35);
+      letter-spacing: 0.2px;
     }
 
     p {
-      margin: 0 0 34px 0;
-      font-size: 48px;
-      text-shadow: 0 0 0.9px rgba(0,0,0,0.35);
+      margin: 0 0 26px 0;
     }
 
-    /* ---------- NAV BAR (unchanged crisp buttons) ---------- */
+    /* ---------- SCROLLBAR (wider + visible) ---------- */
+    .reader::-webkit-scrollbar {
+      width: 18px;               /* wider */
+    }
+    .reader::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.08);
+    }
+    .reader::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.35);
+      border-radius: 10px;
+      border: 3px solid rgba(255,255,255,0.55);
+    }
+
+    /* ---------- NAV BAR (MATCH COVER PAGE) ---------- */
     .navBar {
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
 
-      padding: 14px 16px 20px;
+      padding: 18px 16px 26px;
+
       display: flex;
       gap: 18px;
-      align-items: center;
       justify-content: center;
+      align-items: center;
 
       background: rgba(0,0,0,0.72);
       border-top: 1px solid rgba(255,255,255,0.18);
@@ -88,6 +103,7 @@
       box-sizing: border-box;
     }
 
+    /* Buttons: same as cover page (crisp) */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -121,9 +137,8 @@
     }
 
     .btn:active { transform: translateY(1px); }
-
     .btn.secondary { background: rgba(255,255,255,0.85); }
-    .btn.danger    { background: rgba(255,255,255,0.70); border-color: rgba(255,255,255,0.25); }
+    .btn.danger { background: rgba(255,255,255,0.70); border-color: rgba(255,255,255,0.25); }
 
     .spacer {
       min-width: 180px;
@@ -133,7 +148,6 @@
       font-weight: 900;
       font-size: 22px;
       letter-spacing: 0.4px;
-
       color: rgba(255,255,255,0.92);
 
       -webkit-font-smoothing: none;
@@ -148,80 +162,161 @@
 <body>
   <div class="frame">
     <div class="reader">
-      <h2>Chapter 1 - The Parking Lot</h2>
+      <h2>Chapter 1</h2>
 
+      <!-- PASTE REAL CHAPTER TEXT HERE -->
       <p>
-       Chapter One — The Parking Lot
+        Chapter One — The Parking Lot
 
-Morgan hadn’t planned on spending her lunch break in the Pep Boys parking lot cussing at a pair of windshield wipers, but here she was. One foot on the curb, hair frizzed by humidity, sleeves pushed up like she was about to wrestle the car instead of replace a simple strip of rubber.
-If anyone had walked by five minutes ago, they would’ve heard a string of words that would’ve shocked her law professors.
-“Why. Won’t. You. Snap. In.”
-Each word punctuated by a shove and a glare capable of melting steel.
+Morgan hadn’t planned on spending her lunch break in the Pep Boys parking lot cussing at a pair of windshield wipers, but here she was. One foot on the curb, sleeves shoved up, hair already losing its fight with the humidity. The asphalt shimmered in the heat, bending the edges of the lot. The air tasted faintly of rubber and oil, the kind that clung to the back of your throat.
+
+If anyone had walked by five minutes ago, they would’ve heard a tone that would’ve shocked her law professors.
+
+“Why—”
+
+She shoved the blade again.
+
+“Won’t—”
+
+Another push.
+
+“You—”
+
+The arm rattled.
+
+“Snap. In.”
+
+Each word came with a shove. The plastic bit into her thumb. The metal arm rattled through her wrist, vibrating like it had no intention of cooperating. Sweat slid between her shoulder blades, dampening her blouse until it clung in places she didn’t appreciate.
+
 She tugged again. The wiper arm popped loose, swung back, and smacked the windshield.
-Morgan closed her eyes and breathed through it. Slow inhale. Slow exhale. You are a mature adult. You handle depositions and mediations.
-She whispered, “You will not be defeated by a piece of plastic.”
-The universe, apparently amused, chose that moment to introduce new noise: the low growl of an engine turning into the lot. Not a polite sedan hum — a deep, unapologetic rumble that vibrated through the pavement. The kind of sound you could feel in your ribs.
+
+Morgan closed her eyes.
+
+Slow inhale. Slow exhale.
+
+You are a mature adult, she reminded herself. You handle depositions and mediations.
+
+She leaned closer and whispered, “You will not be defeated by a piece of plastic.”
+
+The universe, apparently amused, chose that moment to introduce a new sound.
+
+An engine rolled into the lot — not the polite hum of a sedan, but something lower, steadier. The sound cut through the heat, close enough to feel underfoot before she fully registered it.
+
 Great. Just what she needed. An audience.
-A blacked-out motorcycle pulled into the spot next to her. Loud pipes, matte helmet, boots that had seen road and dust and probably fights with asphalt. He killed the engine, and silence returned — except it wasn’t silence. Adrenaline had a hum.
-The rider swung off, pulled off his helmet, and shook out dark hair just long enough to drape over his shoulders. Rough-around-the-edges wasn’t a fair description. It was a starting point. Leather jacket, worn jeans, forearms that looked like they’d won arguments with machinery.
-Morgan pretended not to notice him, which was impressive considering she was staring directly at him two seconds ago.
-He glanced her way. Paused. Took in the half-installed wiper blade, the stubborn stance, the muttered threats under her breath.
-“You know,” he said, voice warm with amusement, “those things usually respond better to persuasion than combat.”
+
+A blacked-out motorcycle pulled into the space beside her. Loud pipes. Matte helmet. Boots scuffed from real use. The engine cut, and the sudden quiet felt charged instead of empty.
+
+The rider swung off, lifted his helmet, and shook his hair loose. Dark, just long enough to brush his shoulders. He wore a leather jacket that looked broken in rather than styled, worn jeans, forearms that suggested he’d spent time fixing things that didn’t come with instructions.
+
+Morgan pretended not to notice him, which would’ve been impressive if she hadn’t been staring a moment earlier.
+
+He glanced at her. Took in the half-installed wiper blade, her stubborn stance, the way she muttered under her breath like the car could hear her.
+
+“You know,” he said, voice easy, edged with amusement, “those things usually respond better to persuasion than combat.”
+
 She shot him a look. “I’m persuading. You should’ve seen the combat.”
-A smile tugged at one corner of his mouth. Not cocky. Not pitying. Just entertained.
+
+A smile tugged at one corner of his mouth. Not smug. Just entertained.
+
 “Want a hand?”
+
 Her pride almost said no. Her blood pressure said yes.
+
 She exhaled. “Sure. Before I file a lawsuit against windshield manufacturers everywhere.”
-He stepped closer. “I’ll testify on your behalf.”
-Morgan handed him the blade like she was surrendering a weapon. He examined the hinge, lined up the hook, gave it a clean, confident press — and click. Installed.
-She blinked. “Seriously?”
-He held up the empty palm that wasn’t holding the discarded packaging. “Ancient motorcycle mechanic magic. Passed down through generations.”
+
+“I’ll testify,” he said, stepping closer. “On your behalf.”
+
+She handed him the blade like she was surrendering a weapon. He glanced at it, adjusted the angle, and pressed once — firm, confident.
+
+Click.
+
+Installed.
+
+Morgan blinked. “Seriously?”
+
+He held up his empty hand. “Ancient motorcycle mechanic magic. Passed down through generations.”
+
 She snorted before she could stop herself. “Yeah. That tracks.”
-He gave a small half-bow. “Quinn.”
+
+He gave a small, exaggerated bow. “Quinn.”
+
 “Morgan.”
-They shook hands. His grip was firm, steady. Hers tried to pretend she hadn’t just been swearing at car parts for ten minutes.
-“So,” Quinn said, stepping back, “you always pick fights with auto parts or is this a special occasion?”
+
+They shook hands. His grip was steady. Hers tried to pretend she hadn’t just been swearing at car parts for ten straight minutes.
+
+“So,” Quinn said, stepping back, “you always pick fights with auto parts, or is this a special occasion?”
+
 “It’s a new hobby,” she deadpanned. “Thinking about turning professional.”
-He laughed, quiet but real. “Let me know if you need a sponsor.”
+
+He laughed — quiet, real. “Let me know if you need a sponsor.”
+
 She tugged her sleeve down. “Thanks. Seriously. I should probably hire a pit crew next time I attempt basic maintenance.”
+
 “Happy to help.”
-Small pause. The easy kind. He glanced toward the store.
-“Here for oil. Bike drinks the good stuff.”
-“Motorcycle owner and puzzle-master,” she said. “Impressive.”
-“What about you? Mechanic by choice or desperate circumstance?”
-“I’m in law,” she replied, smoothing hair she suddenly realized might look like she'd crawled out of a wind tunnel.
+
+They stood there a moment, the easy kind of pause. He glanced toward the store.
+
+“Here for oil,” he said. “Bike drinks the good stuff.”
+
+“Motorcycle owner and puzzle-master,” she replied. “Impressive.”
+
+“What about you?” he asked. “Mechanic by choice or desperate circumstance?”
+
+“I’m in law.” She smoothed her hair, suddenly aware it might look like she’d stuck her head out a moving window.
+
 His eyebrows lifted slightly. “Law, huh? Must be interesting.”
+
 “Some days,” she said, which was the safest answer possible.
+
 “What kind of law?”
-She hesitated, then shrugged. “The grown-up kind where you spend most of your time reading things that make your soul fall asleep.”
-That earned another smile. “Sounds thrilling.”
+
+She hesitated, then shrugged. “The grown-up kind. Lots of reading. Very little glory.”
+
+“Sounds thrilling.”
+
 “And you?” she asked. “What do you do? Aside from saving stranded drivers from wiper-related breakdowns.”
-“A little company,” he said casually. “Nothing exciting. Tech stuff.”
-That explained nothing. He didn’t elaborate. Didn’t seem to feel like he needed to.
-He reached into his jacket and pulled out a card — simple matte black, understated logo, embossed text. He handed it to her like people did in movies when handing over keys to a kingdom. "They might be looking for some legal help, give them a call." She barely glanced at it. “Thanks. I’ll check it out.”
-He nodded like it didn’t matter either way. “If you want.”
-To her, he looked like he worked in a shop sharpening knives between road trips. Janitor, maybe. Mechanic. Definitely not suit-and-tie territory.
-She tucked the card in her bag without reading it, already convinced it was a hobby side gig.
-“Well,” she said, “I should get back before my lunch break turns into an unpaid internship in the Pep Boys parking lot.”
+
+“A little company,” he said easily. “Tech stuff.”
+
+That explained nothing. He didn’t seem inclined to explain more.
+
+He reached into his jacket and pulled out a card. Matte black. Simple. He handed it to her without ceremony.
+
+“They might be looking for some legal help,” he said. “If you’re interested.”
+
+She took it. It felt heavier than she expected. She slipped it into her bag without looking at it, not entirely sure why she felt the need to do that.
+
+“Thanks,” she said. “I’ll check it out.”
+
+“If you want.”
+
+He said it like it truly didn’t matter.
+
+To her, he looked like someone who worked with his hands. Mechanic, maybe. Definitely not suit-and-tie territory.
+
+“Well,” she said, opening her car door, “I should get back before my lunch break turns into an unpaid internship in this parking lot.”
+
 “Fair enough.”
+
 “Thanks again.”
-He gave a small salute with two fingers and turned toward the entrance.
-Morgan got into her car, exhaling as she closed the door. The AC blasted, cooling her flushed cheeks. She shook her head, laughing to herself.
-“Little company,” she mimicked under her breath. “Sure. Bet he cleans the floors at this one too.”
-Then again… maybe she’d call the number tomorrow. Just curiosity. Nothing else.
-Through the windshield, she watched Quinn walk toward the store — quiet, unhurried, like a man with nowhere he needed to be and nothing to prove.
+
+He gave a two-finger salute and headed toward the store, unhurried. As he walked away, something tugged at her attention — the sense that he’d taken in more than he needed to.
+
+Morgan slid into the driver’s seat and shut the door. The AC blasted to life, cool air washing over her flushed skin. She laughed softly to herself.
+
+“Little company,” she murmured. “Sure.”
+
+Through the windshield, she watched Quinn disappear inside, moving like a man with nowhere he needed to rush and nothing he needed to prove.
+
 She didn’t know yet that tomorrow’s call would set everything into motion.
+
 Right now, all she knew was that her wipers finally worked.
+
 And that maybe — just maybe — her day had gotten a little more interesting.
       </p>
 
       <p>
-        Add as many paragraphs as you want. The scrollbar will appear on the right side of the reading area.
-      </p>
-
-      <p>
-        If you prefer paging instead of scrolling later, we can split the chapter across multiple chapter-01-XX.html files
-        and keep this same large font.
+        Tip: Keep paragraph breaks as real &lt;p&gt; blocks (not double line breaks) for consistent spacing.
       </p>
     </div>
   </div>
