@@ -9,7 +9,9 @@
     html, body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* prevents horizontal scrollbars */
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* removes ALL scrollbars initially */
     }
 
     body {
@@ -19,7 +21,7 @@
       line-height: 1.75;
     }
 
-    /* ---------- COVER PAGE ---------- */
+    /* ---------- FULL BLEED COVER ---------- */
     .cover {
       width: 100vw;
       height: 100vh;
@@ -28,11 +30,16 @@
     .cover img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* change to "cover" if you want edge-to-edge crop */
+      object-fit: cover; /* true edge-to-edge */
       display: block;
     }
 
     /* ---------- BOOK CONTENT ---------- */
+    .content {
+      overflow-y: auto;      /* scrolling allowed AFTER cover */
+      height: 100vh;
+    }
+
     .page {
       max-width: 720px;
       margin: 0 auto;
@@ -59,24 +66,26 @@
 
 <body>
 
-  <!-- COVER PAGE -->
+  <!-- COVER (NO SCROLL, EDGE TO EDGE) -->
   <div class="cover">
     <img src="image1.jpg" alt="Between Mountains and Sea book cover">
   </div>
 
-  <!-- BOOK CONTENT -->
-  <div class="page">
-    <p>
-      This is the opening page of the book.
-      Replace this text later with your actual content.
-    </p>
+  <!-- CONTENT (SCROLL ENABLED) -->
+  <div class="content">
+    <div class="page">
+      <p>
+        This is the opening page of the book.
+        Replace this text later with your actual content.
+      </p>
 
-    <p>
-      This layout is optimized for Media On A Prim and modern readability.
-    </p>
+      <p>
+        This layout is optimized for Media On A Prim and modern readability.
+      </p>
 
-    <div class="nav">
-      <a href="#">Next Page →</a>
+      <div class="nav">
+        <a href="#">Next Page →</a>
+      </div>
     </div>
   </div>
 
