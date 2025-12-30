@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Between Mountains and Sea</title>
 
   <style>
-    /* ---------- GLOBAL RESET ---------- */
+    /* ---------- HARD RESET FOR MOAP ---------- */
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden; /* removes ALL scrollbars initially */
+      overflow: hidden; /* absolutely no scrollbars */
+      background: #ffffff;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #ffffff;
+
+      /* MOAP clarity tuning */
+      font-size: 22px;        /* smaller looks blurry at this prim size */
+      font-weight: 600;       /* heavier renders cleaner */
+      line-height: 1.8;
       color: #111111;
-      line-height: 1.75;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
-    /* ---------- FULL BLEED COVER ---------- */
+    /* ---------- FULL-BLEED COVER ---------- */
     .cover {
       width: 100vw;
       height: 100vh;
@@ -30,62 +39,88 @@
     .cover img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* true edge-to-edge */
+      object-fit: cover;     /* edge-to-edge */
       display: block;
     }
 
-    /* ---------- BOOK CONTENT ---------- */
+    /* ---------- CONTENT PAGE ---------- */
     .content {
-      overflow-y: auto;      /* scrolling allowed AFTER cover */
+      width: 100vw;
       height: 100vh;
+      box-sizing: border-box;
+      padding: 48px 40px;    /* tighter sides = fewer line breaks */
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: #ffffff;
     }
 
     .page {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 48px;
+      width: 100%;
+      max-width: 640px;      /* IMPORTANT: narrower = sharper text */
+      box-sizing: border-box;
+    }
+
+    h2 {
+      margin: 0 0 18px 0;
+      font-size: 24px;
+      font-weight: 700;
+      text-shadow: 0 0 0.7px rgba(0,0,0,0.35);
     }
 
     p {
-      font-size: 16px;
-      margin-bottom: 20px;
+      margin: 0 0 22px 0;
+      font-size: 22px;
+      text-shadow: 0 0 0.7px rgba(0,0,0,0.35);
     }
 
+    /* ---------- NAV (optional, MOAP-friendly) ---------- */
     .nav {
-      margin-top: 48px;
-      text-align: right;
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
     }
 
-    .nav a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #333333;
+    .nav span {
+      color: #222;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- COVER (NO SCROLL, EDGE TO EDGE) -->
+  <!-- COVER (edge-to-edge, no scrollbars) -->
   <div class="cover">
-    <img src="image1.jpg" alt="Between Mountains and Sea book cover">
+    <img src="image1.jpg" alt="Between Mountains and Sea book cover" />
   </div>
 
-  <!-- CONTENT (SCROLL ENABLED) -->
+  <!-- CONTENT PAGE (no scrolling; keep text to a “page”) -->
   <div class="content">
     <div class="page">
+
+      <h2>Chapter 1</h2>
+
       <p>
-        This is the opening page of the book.
-        Replace this text later with your actual content.
+        This is the opening page of the book. Replace this text later with your
+        actual content.
       </p>
 
       <p>
-        This layout is optimized for Media On A Prim and modern readability.
+        For Second Life Media-On-A-Prim, clarity comes from larger type,
+        heavier weight, and shorter line lengths rather than more resolution.
+      </p>
+
+      <p>
+        Treat each visible screen as a printed page. Add paging controls
+        instead of scrolling for best results.
       </p>
 
       <div class="nav">
-        <a href="#">Next Page →</a>
+        <span>← Prev</span>
+        <span>Next →</span>
       </div>
+
     </div>
   </div>
 
